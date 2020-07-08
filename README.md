@@ -4,28 +4,20 @@ A set of tools meant to help a small bit in the grading process for CS50's web c
 
 ## Project 0: Search
 
-### Purpose
+* Purpose: Opens a file from within a folder using Google Chrome.
 
-Opens a file from within a folder using Google Chrome.
-
-### Usage
+* Usage: If no file name is included, a default of `index.html` will be provided.
 
 ```bash
 python search.py <directory_name> [file name]
 ```
 
-If no file name is included, a default of `index.html` will be provided.
-
 ## Project 1: Wiki
 
-### Purpose
+* Purpose: Clears out and remakes migrations before running the server
 
-Clears out and remakes migrations before running the server
-
-### Usage
+* Usage: It is assumed that within `<directory_name>`, there is a `manage.py` file and an app called `encyclopedia`.
 
 ```bash
 python wiki.py <directory_name>
 ```
-
-It is assumed that within `<directory_name>`, there is a `manage.py` file and an app called `encyclopedia`.
