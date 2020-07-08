@@ -15,3 +15,17 @@ python search.py <directory_name> [file name]
 ```
 
 If no file name is included, a default of `index.html` will be provided.
+
+## Project 1: Wiki
+
+### Purpose
+
+Clears out and remakes migrations before running the server
+
+### Usage
+
+```bash
+python wiki.py <directory_name>
+```
+
+It is assumed that within `<directory_name>`, there is a `manage.py` file and an app called `encyclopedia`.
