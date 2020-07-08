@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     # Make sure correct number of arguments is correct
     if len(sys.argv) > 3 or len(sys.argv) < 2:
-        print("Usage: python run.py directory [initial file]")
+        print("Usage: python search.py directory [initial file]")
 
     try:
         # Get file from command line argument
