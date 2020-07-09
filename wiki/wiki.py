@@ -7,10 +7,10 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python wiki.py directory")
 
-    # Get folder from command line argument and go into the 'wiki' app
+    # Get folder from command line argument and go into the 'encyclopedia' app
     folder = sys.argv[1]
-    base_folder = os.getcwd() + "/" + folder
-    os.chdir(base_folder + "/encyclopedia/")
+    base_folder = f"{os.getcwd()}/{folder}"
+    os.chdir(f"{base_folder}/encyclopedia/")
 
     # Remove any current migrations for a clean slate
     print("removing current migrations...")
