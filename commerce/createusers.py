@@ -21,7 +21,7 @@ class Command(BaseCommand):
             try:
                 user = User.objects.create_user(name, f"{name}@cs50.net", name)
                 user.save()
-                self.stdout.write(self.style.SUCCESS(f"Successfully created user {name} with password {name}"))
+                self.stdout.write(self.style.SUCCESS(f"Successfully created user {name} with password {name} and email {name}@cs50.net"))
                 created += 1
                 if created == 2:
                     return
