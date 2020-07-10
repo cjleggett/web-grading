@@ -1,6 +1,6 @@
 # Necessary imports
 from django.core.management.base import BaseCommand, CommandError
-from auctions.models import User
+from mail.models import User
 
 # Creating a command for manage.py to run
 class Command(BaseCommand):
@@ -19,12 +19,11 @@ class Command(BaseCommand):
 
             # Try to save the user and write success message
             try:
-                sup = created == 2
-                user = User.objects.create_user(name, f"{name}@cs50.net", name, is_superuser=sup, is_staff=sup)
+                user = User.objects.create_user(name, f"{name}@cs50.net", name)
                 user.save()
-                self.stdout.write(self.style.SUCCESS(f"Successfully created {'super' if sup else ''}user {name} with password {name} and email {name}@cs50.net"))
+                self.stdout.write(self.style.SUCCESS(f"Successfully created user {name} with password {name} and email {name}@cs50.net"))
                 created += 1
-                if created == 3:
+                if created == 2:
                     return
             
             # I fusername is taken, print a notice

@@ -5,13 +5,13 @@ import subprocess
 if __name__ == "__main__":
     # Make sure correct number of arguments is correct
     if len(sys.argv) != 2:
-        print("Usage: python commerce.py directory")
+        print("Usage: python mail.py directory")
 
-    # Get folder from command line argument and go into the 'auctions' app
+    # Get folder from command line argument and go into the 'mail' app
     original_folder = os.getcwd()
     folder = sys.argv[1]
     base_folder = f"{os.getcwd()}/{folder}"
-    os.chdir(f"{base_folder}/auctions/")
+    os.chdir(f"{base_folder}/mail/")
 
     # Remove any current migrations for a clean slate
     print("removing current migrations...")
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     # Change to base folder and make migrations
     os.chdir(base_folder)
     print("Making migrations...")
-    subprocess.run(["python3", "manage.py", "makemigrations", "auctions"])
+    subprocess.run(["python3", "manage.py", "makemigrations", "mail"])
     subprocess.run(["python3", "manage.py", "makemigrations"])
 
     # Migrating
@@ -29,15 +29,15 @@ if __name__ == "__main__":
 
     # Inserting a file in the app that will run a command
     print("Adding manage.py command...")
-    os.chdir(f"{base_folder}/auctions/")
+    os.chdir(f"{base_folder}/mail/")
     subprocess.run(["mkdir", "management"])
-    os.chdir(f"{base_folder}/auctions/management/")
+    os.chdir(f"{base_folder}/mail/management/")
     subprocess.run(["mkdir", "commands"])
     os.chdir(original_folder)
-    subprocess.run(["cp", "createusers.py", f"{folder}/auctions/management/commands/"])
+    subprocess.run(["cp", "createusers.py", f"{folder}/mail/management/commands/"])
 
-    # Adding two users and a superuser to the app
-    print("Adding two users and a superuser to the application...")
+    # Adding two users to the app
+    print("Adding two users to the application...")
     os.chdir(base_folder)
     subprocess.run(["python3", "manage.py", "createusers"])
 
