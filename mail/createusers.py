@@ -19,9 +19,9 @@ class Command(BaseCommand):
 
             # Try to save the user and write success message
             try:
-                user = User.objects.create_user(name, f"{name}@cs50.net", name)
+                user = User.objects.create_user(f"{name}@cs50.net", f"{name}@cs50.net", name)
                 user.save()
-                self.stdout.write(self.style.SUCCESS(f"Successfully created user {name} with password {name} and email {name}@cs50.net"))
+                self.stdout.write(self.style.SUCCESS(f"Successfully created user {name}@cs50.net with password {name} and email {name}@cs50.net"))
                 created += 1
                 if created == 2:
                     return
