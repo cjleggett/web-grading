@@ -5,7 +5,7 @@ import re
 
 if __name__ == "__main__":
     # Make sure correct number of arguments is correct
-    if len(sys.argv) != 3:
+    if len(sys.argv) not in  {3, 4}:
         print("Usage: python final.py directory app_name [no_users (1/0)]")
 
     # Get folder from command line argument and go into the student's app
@@ -53,7 +53,7 @@ if __name__ == "__main__":
             f.write(new_contents)
 
         # Adding two users to the app
-        print("Adding two users to the application...")
+        print("Adding users to the application...")
         os.chdir(base_folder)
         subprocess.run(["python3", "manage.py", "createusers"])
 
